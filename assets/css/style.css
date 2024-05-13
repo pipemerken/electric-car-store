@@ -1,137 +1,132 @@
-*
-{
-    margin: 0;
-    padding: 0;
+
+/* Estilos CSS para diseño y estructura */
+
+/* Resetear margen y relleno a 0 para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
 }
+
+/* Estilos de la navegación */
+.nav ul li {
+  /* Eliminar viñetas de la lista de navegación */
+  list-style: none;
+}
+
+.nav ul  {
+  /* Eliminar viñetas de la lista de navegación */
+  padding-left: 0rem;
+}
+.nav {
+  /* Ubicación y diseño del menú de navegación */
+  grid-area: menu;
+  background-color: #01579B ; /* Color de fondo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white; /* Color de texto */
+  padding-top: 1rem; /* Espacio para el logo */
+}
+
+/* Estilos del encabezado */
+header {
+  grid-area: header; /* Ubicación del encabezado en el diseño de la cuadrícula */
+  background-color: #E1E2E1 ;
+  padding-top: 2rem;
+  text-align: center;
+  width: 100%;
+  padding:  1rem 2rem 1rem 2rem;
+}
+
+/* Estilos del contenido principal */
+main {
+  grid-area: principal; /* Ubicación del contenido principal en la cuadrícula */
+  display: flex;
+  justify-content: space-around; /* Distribución uniforme de elementos */
+  overflow-y: scroll; /* Agregar barra de desplazamiento vertical si el contenido es largo */
+}
+
+/* Estilos del pie de página */
+footer {
+  grid-area: pie-pagina; /* Ubicación del pie de página en la cuadrícula */
+  background-color: #002F6C; /* Color de fondo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: white; /* Color de texto */
+}
+
+/* Estilos de paginación */
+.paginas {
+  margin-top: 10px; /* Espacio superior */
+  grid-area: paginas; /* Ubicación de la paginación en la cuadrícula */
+  display: flex;
+  justify-content: center; /* Centrar elementos */
+}
+
+/* Diseño de cuadrícula */
 .grid-container {
-    display: grid;
-    grid-template-areas: 
-    "header header header"
-    "aside main main"
-    "footer footer footer"
-    ;
-    
-    grid-template-columns: 15% auto;
-    grid-template-rows: 5% 80% 5%;
-    
-    height: 100vh;
+  display: grid;
+  grid-template-areas:
+    "menu header"
+    "menu principal"
+    "menu principal"
+    "pie-pagina paginas";
+  grid-template-columns: 13rem 3fr; /* Ancho de las columnas */
+  grid-template-rows: 1fr 20fr 1fr; /* Altura de las filas */
+  height: 100vh; /* Altura completa del viewport */
 }
 
-
-/* header,aside,main,footer{
-    border: 1px solid black
-} */
-
-header{
-    grid-area: header;
-    background-color: #25527B;
-    color: white;
-    font-size:  20px;
-    font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-
+/* Estilos de iconos de redes sociales */
+.icons {
+  display: ruby;
+  justify-content: space-around; /* Distribución uniforme de elementos */
+  padding: 1rem;
+  margin-right: 1rem;
 }
 
-aside{
-    grid-area: aside;
-    background-color: #E7E7E7;
-
+/* Estilos de la galería */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Diseño de 5 columnas */
+  gap: 10px; /* Espacio entre las tarjetas */
+  height: 50%;
 }
 
-main{
-    grid-area: main;
-    background-color: #E7E7E7;
-    display: flex;
-    
+/* Icono del menú burger */
+.menu-burger {
+  display: none; /* Ocultar */
 }
 
-footer{
-    grid-area: footer;
-    background-color: #25527B;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 30px;
+/* Consulta de medios para pantallas más pequeñas */
+@media (max-width: 576px) {
+  /* Cambiar a diseño de bloque para pantallas pequeñas */
+  .grid-container {
+    display: block;
+  }
+
+  /* Ajustar diseño de la galería para pantallas pequeñas */
+  .galeria {
+    grid-template-columns: 1fr; /* Cambiar a una sola columna */
+    gap: 0px; /* Eliminar espacio entre las tarjetas */
+  }
+
+  /* Ajustes de navegación para pantallas pequeñas */
+  .nav {
+    padding-top: 1;
+    flex-direction: row; /* Cambiar dirección del flexbox a fila */
+    justify-content: space-around; /* Distribución uniforme de elementos */
+  }
+
+  /* Ocultar lista de navegación en pantallas pequeñas */
+  .nav ul {
+    display: none;
+  }
+
+  /* Mostrar icono de menú burger en pantallas pequeñas */
+  .menu-burger {
+    display: block;
+  }
+  
 }
-.grid-galeria{
-    display: grid;
-    grid-template-columns: repeat(3,auto);
-    padding-left: 50px;
-    padding-top: 30px;
-    column-gap: 30px;
-    row-gap: 40px;
-    justify-content: space-around;
-    height: 60vh;
-    align-items: center;
-
-}
-
-aside{
-    display: flex;
-    justify-content: center;
-}
-
-
-.list-titulo {
-    font-size: 21px;
-    padding-top: 20px;
-    padding-bottom: 11px;
-}
-
-ul li{
-    list-style: none;
-    line-height: 28px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-    /* line-height permite espacio vertical entre los elementos de la lista */ 
-    
-}
-
-ul li spam{
-    color: #9E9FA4;
-}
-
-.card {
-    height: 450px;
-    width: 360px;
-    /* border: 3px solid black; */
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.card img{
-    height: 80%;
-
-}
-
-.card button{
-    width: 100%;
-    padding: 10px;
-    background: #25527B;
-    color: white;
-    border-style: none;
-
-
-}
-
-main h6{
-    font-size: 20px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-
-}
-
-main p{
-    font-size: 16px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
-    color: #9E9FA4;
-    padding-bottom: 10px;
-}
-
-
